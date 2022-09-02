@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<body>
+	<h1>file Upload</h1>
+	<div>
+		<form method="post" enctype="multipart/form-data" th:action="@{/dashboard/upload}">
+			<label for"ufile">Choose file:</labelfor>
+			<input type="file" id="ufile" name="ufile" /></br>
+			<input type="submit" value="upload">
+	</div>
+	<div>
+		<h2>Uploaded Files</h2>
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Size(bytes)</th>
+			
+			<tr th:each="file : ${files}">
+				<td><span th:text="${file.id}">Id</span></td>
+				<td><span th:text="${file.name}">Name</span></td>
+				<td><span th:text="${file.size}">Size</span></td>
+			</tr>
+			</tr>
+		</table>
+	</div>
+</body>
